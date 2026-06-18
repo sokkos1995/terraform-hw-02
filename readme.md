@@ -40,6 +40,39 @@
 - скриншот консоли, curl должен отобразить тот же внешний ip-адрес;
 - ответы на вопросы.
 
+### Решение
+
+Была проблеа с инициализацией терраформа -  подчистил служебные файлы и заново сделал terraform init, проблема ушла
+```
+│ Error: Required plugins are not installed
+│ 
+│ The installed provider plugins are not consistent with the packages selected in the dependency
+│ lock file:
+│   - registry.terraform.io/yandex-cloud/yandex: the cached package for registry.terraform.io/yandex-cloud/yandex 0.206.0 (in .terraform/providers) does not match any of the checksums recorded in the dependency lock file
+│ 
+│ Terraform uses external plugins to integrate with a variety of different infrastructure
+│ services. To download the plugins required for this configuration, run:
+│   terraform init
+```
+
+Дальше была проблема с платформой
+```
+Error: Error while requesting API to create instance: client-request-id = 92c6eaec-c2c1-4063-8878-9339c510cdcd client-trace-id = c2c6acba-2122-4b7f-8b55-7f9287a11fe1 rpc error: code = FailedPrecondition desc = Platform "standart-v4" not found
+```
+Спустя пару миллионов нервных клеток обнаружил очепятку `standard`, остальное проще (коры, кор фракшн, чуть дополнить переменную с ssh ключом)
+
+![Терминал](./images/hw02_01.png)
+
+![Браузер](./images/hw02_02.png)
+
+Ответы на вопросы
+- `Ответьте, в чём заключается их суть`
+  - `family = "ubuntu-2204-lts"` - не уверен что тут была ошибка, но терраформ ругался что не может найти нужную platform_id , адаптировал под код из лекции
+  - `platform_id = "standard-v3"` - опечатка + версия
+  - `cores         = 2`, `core_fraction = 20` - выбирал из предложенных терраформом значений
+- `как в процессе обучения могут пригодиться параметры`
+  - `preemptible = true` - ВМ создается как прерываемая, с максимальным сроком жизни в 24 часа, позволяет сэкономить деньги
+  - `core_fraction=5` - каждое ядро ВМ гарантировано получает 5% времени физического процессора , это минимальный уровень производительности (можно дешево держать ВМ)
 
 ### Задание 2
 
@@ -47,6 +80,18 @@
 2. Объявите нужные переменные в файле variables.tf, обязательно указывайте тип переменной. Заполните их **default** прежними значениями из main.tf. 
 3. Проверьте terraform plan. Изменений быть не должно. 
 
+```bash
+terraform plan
+data.yandex_compute_image.ubuntu: Reading...
+yandex_vpc_network.develop: Refreshing state... [id=enpu4r1plrkhbkldfiaj]
+data.yandex_compute_image.ubuntu: Read complete after 0s [id=fd806c8slu9j1pa87msc]
+yandex_vpc_subnet.develop: Refreshing state... [id=e9b3t6g80hu17al2351f]
+yandex_compute_instance.platform: Refreshing state... [id=fhm8rsjl48fl3u1l1bre]
+
+No changes. Your infrastructure matches the configuration.
+
+Terraform has compared your real infrastructure against your configuration and found no differences, so no changes are needed.
+```
 
 ### Задание 3
 
