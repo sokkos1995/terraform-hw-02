@@ -47,22 +47,3 @@ variable "image" {
   description = "VPC network & subnet name"
 }
 
-## yandex_compute_instance
-
-variable "vm_prefix" {
-  type        = string
-  default     = "vm_web"
-  description = "К названиям переменных ВМ добавьте в начало префикс vm_web_"
-}
-
-variable "vm_web_name" {
-  type        = string
-  default     = "netology-develop-platform-web"
-  description = "К названиям переменных ВМ добавьте в начало префикс vm_web_"
-}
-
-variable "vm_web_platform" {
-  type        = string
-  default     = "standard-v3"
-  description = "К названиям переменных ВМ добавьте в начало префикс vm_web_"
-}
