@@ -40,7 +40,7 @@
 - скриншот консоли, curl должен отобразить тот же внешний ip-адрес;
 - ответы на вопросы.
 
-### Решение
+[Решение](https://github.com/sokkos1995/terraform-hw-02/commit/8da8929e0cb45003afcd8259fccb4d9511205ba4)
 
 Была проблеа с инициализацией терраформа -  подчистил служебные файлы и заново сделал terraform init, проблема ушла
 ```
@@ -80,6 +80,8 @@ Error: Error while requesting API to create instance: client-request-id = 92c6ea
 2. Объявите нужные переменные в файле variables.tf, обязательно указывайте тип переменной. Заполните их **default** прежними значениями из main.tf. 
 3. Проверьте terraform plan. Изменений быть не должно. 
 
+[Решение](https://github.com/sokkos1995/terraform-hw-02/commit/64168d8ea785166be0797ed984b2590c91057c3c)
+
 ```bash
 terraform plan
 data.yandex_compute_image.ubuntu: Reading...
@@ -99,6 +101,8 @@ Terraform has compared your real infrastructure against your configuration and f
 2. Скопируйте блок ресурса и создайте с его помощью вторую ВМ в файле main.tf: **"netology-develop-platform-db"** ,  ```cores  = 2, memory = 2, core_fraction = 20```. Объявите её переменные с префиксом **vm_db_** в том же файле ('vms_platform.tf').  ВМ должна работать в зоне "ru-central1-b"
 3. Примените изменения.
 
+[Решение](https://github.com/sokkos1995/terraform-hw-02/commit/d4865057e6c7d149f5443c365ecaeb0bd21577e1)
+
 ![](./images/hw02_03.png)
 
 Зону видно здесь
@@ -112,7 +116,7 @@ Terraform has compared your real infrastructure against your configuration and f
 
 В качестве решения приложите вывод значений ip-адресов команды ```terraform output```.
 
-Решение: [дока](https://yandex.cloud/ru/docs/terraform/resources/compute_instance#arguments-and-attributes-reference) , [код](./src/outputs.tf)
+[Решение](https://github.com/sokkos1995/terraform-hw-02/commit/bda0c0c748618a786a3d44fd92b2784831355963): [дока](https://yandex.cloud/ru/docs/terraform/resources/compute_instance#arguments-and-attributes-reference) , [код](./src/outputs.tf)
 
 ```
 test = [
@@ -140,7 +144,7 @@ test = [
 2. Замените переменные внутри ресурса ВМ на созданные вами local-переменные.
 3. Примените изменения.
 
-Решение - [применил](./src/locals.tf), план не поменялся
+[Решение](https://github.com/sokkos1995/terraform-hw-02/commit/3f2a1bb2e6c0eb0f2e78e4e006aad04dc5a39ee4) - [применил](./src/locals.tf), план не поменялся
 ```
 terraform plan
 data.yandex_compute_image.ubuntu: Reading...
@@ -192,7 +196,7 @@ Terraform has compared your real infrastructure against your configuration and f
 5. Найдите и закоментируйте все, более не используемые переменные проекта.
 6. Проверьте terraform plan. Изменений быть не должно.
 
-Решение
+[Решение](https://github.com/sokkos1995/terraform-hw-02/commit/7634914a45050ed19a1c2e0dc9c60fe8002fc4bf)
 ```
 terraform plan
 data.yandex_compute_image.ubuntu: Reading...
