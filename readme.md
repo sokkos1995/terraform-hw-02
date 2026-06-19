@@ -192,6 +192,20 @@ Terraform has compared your real infrastructure against your configuration and f
 5. Найдите и закоментируйте все, более не используемые переменные проекта.
 6. Проверьте terraform plan. Изменений быть не должно.
 
+Решение
+```
+terraform plan
+data.yandex_compute_image.ubuntu: Reading...
+yandex_vpc_network.develop: Refreshing state... [id=enplanme6pnc2lc64v0c]
+data.yandex_compute_image.ubuntu: Read complete after 0s [id=fd806c8slu9j1pa87msc]
+yandex_vpc_subnet.develop-b: Refreshing state... [id=e2leqlvqd22jp268h9cm]
+yandex_vpc_subnet.develop: Refreshing state... [id=e9b50q6241g3tcklu8i0]
+yandex_compute_instance.platform: Refreshing state... [id=fhmariea1vcmpu2c5igg]
+yandex_compute_instance.db: Refreshing state... [id=epdhjbvfvh7haebs2l0l]
+
+No changes. Your infrastructure matches the configuration.
+```
+
 ------
 
 ## Дополнительное задание (со звёздочкой*)

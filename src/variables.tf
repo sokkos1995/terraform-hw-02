@@ -44,11 +44,11 @@ variable "vpc_name" {
 
 ###ssh vars
 
-variable "vms_ssh_root_key" {
-  type        = string
-  default = "ubuntu:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICxxS52ZGJ9qacOsqCJ2OF27Gq98Bc55mLF/feV5W5td sokolov.k2@wildberries.work"
-  description = "ssh-keygen -t ed25519"
-}
+# variable "vms_ssh_root_key" {
+#   type        = string
+#   default = "ubuntu:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICxxS52ZGJ9qacOsqCJ2OF27Gq98Bc55mLF/feV5W5td sokolov.k2@wildberries.work"
+#   description = "ssh-keygen -t ed25519"
+# }
 
 ## yandex_compute_image
 
