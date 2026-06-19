@@ -1,5 +1,16 @@
 ###cloud vars
 
+variable "project" {
+  type        = string
+  default     = "netology"
+  description = "Project name for resource naming"
+}
+
+variable "env" {
+  type        = string
+  default     = "develop"
+  description = "Environment name for resource naming"
+}
 
 variable "cloud_id" {
   type        = string
