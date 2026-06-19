@@ -112,6 +112,27 @@ Terraform has compared your real infrastructure against your configuration and f
 
 В качестве решения приложите вывод значений ip-адресов команды ```terraform output```.
 
+Решение: [дока](https://yandex.cloud/ru/docs/terraform/resources/compute_instance#arguments-and-attributes-reference) , [код](./src/outputs.tf)
+
+```
+test = [
+  {
+    "dev1" = [
+      "instance_name netology-develop-platform-web",
+      "external_ip 62.84.124.203",
+      "fqdn fhmariea1vcmpu2c5igg.auto.internal",
+    ]
+  },
+  {
+    "dev2" = [
+      "instance_name netology-develop-platform-db",
+      "external_ip 89.169.184.200",
+      "fqdn epdhjbvfvh7haebs2l0l.auto.internal",
+    ]
+  },
+]
+```
+
 
 ### Задание 5
 
